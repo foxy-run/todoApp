@@ -81,6 +81,9 @@ body {
   display: inline-block;
 }
 
+.none {
+  display: none;
+}
 
 .tasks__item {
   color: beige;
@@ -100,4 +103,14 @@ body {
   color: beige;
   margin-top: 20px;
 
+}
+
+.tasks__done img, .tasks__delete img {
+  pointer-events: none;
+}
+
+.done_task {
+
+  text-decoration: line-through;
+  color: rgba(255, 228, 196, 0.296);
 }
