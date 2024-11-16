@@ -109,7 +109,7 @@ body {
   pointer-events: none;
 }
 
-.done_task {
+.done, .done__task {
 
   text-decoration: line-through;
   color: rgba(255, 228, 196, 0.296);
