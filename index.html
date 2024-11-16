@@ -28,13 +28,19 @@
           <div class="field">
             <div class="container">
               <div class="field__row">
-                <input
-                  type="text"
-                  name="add_task"
-                  id="add"
-                  placeholder="Запиши, чтобы не забыть"
-                />
-                <button type="button">+Добавить</button>
+                <div class="field__header">Добавить новую задачу</div>
+                <div class="field__form">
+                  <form id="form">
+                    <input
+                    type="text"
+                    name="add_task"
+                    id="add"
+                    placeholder="Запиши, чтобы не забыть"
+                  />
+                  <button type="submit">+Добавить</button>
+                  </form>
+                 
+                </div>
               </div>
             </div>
           </div>
@@ -42,11 +48,13 @@
             <div class="container">
               <ul class="tasks__list" id="list">
                 <li class="tasks__item empty">
-                  <div class="tasks__icon_empty">
+                  <!-- <div class="tasks__icon_empty">
                     <img src="img/leaf.svg" alt="" />
-                  </div>
-                  <div class="tasks__title_empty">Список дел пока пуст</div>
+                  </div> -->
+                  <div class="tasks__title_empty">Список дел пока пуст...</div>
                 </li>
+
+                <li class="tasks__item"></li>
               </ul>
             </div>
           </div>
