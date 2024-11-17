@@ -1,0 +1,130 @@
+ /* @import url(/src/css/bootstrap-grid.css); */
+ @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+ body {
+   font-family: Nunito Sans;
+   height: 100%;
+   background-color: rgb(54, 51, 51);
+   color: beige;
+ }
+
+ .wrapper {
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .header__row {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .header__logo img {
+   height: 100px;
+   width: 100px;
+ }
+
+ .header__title {
+   font-size: 72px;
+   color: beige;
+ }
+
+ .field__header {
+   font-size: 32px;
+ }
+
+ .field__row {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .tasks {
+   display: flex;
+   justify-content: center;
+   align-self: center;
+   margin: 10px 0px;
+ }
+
+ .tasks__list {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   list-style: none;
+   padding: 15px;
+
+ }
+
+ .tasks__item li {
+   margin-top: 5 px;
+   display: inline-block;
+ }
+
+ .none {
+   display: none;
+ }
+
+ .tasks__item {
+   color: beige;
+   font-size: 25px;
+ }
+
+ .tasks__icon_empty img {
+   height: 50px;
+   width: 50px;
+ }
+
+ .tasks__title_empty {
+   font-size: 25px;
+   color: beige;
+   margin-top: 20px;
+   text-align: center;
+ }
+
+ .tasks__done img,
+ .tasks__delete img {
+   pointer-events: none;
+ }
+
+ .done {
+   text-decoration: line-through;
+   color: rgba(255, 228, 196, 0.296);
+ }
+
+
+ .field__input {
+   background-color: rgba(119, 110, 126, 0.822);
+   color: beige;
+   font-family: inherit;
+   height: 35px;
+   border: 0.5px solid rgba(119, 110, 126, 0.822);
+   border-radius: 15px;
+ }
+
+
+ ::placeholder {
+   color: beige;
+ }
+
+ .field__button {
+   cursor: pointer;
+   border-radius: 16px;
+   background-color: rgba(171, 99, 238, 0.508);
+   color: beige;
+   font-size: 22px;
+ }
+
+ .tasks__done {
+   cursor: pointer;
+   border-radius: 15px;
+   background-color: #342a2ae3;
+   box-shadow: 0.5px rgb(234, 216, 216);
+ }
+
+ .tasks__delete {
+   cursor: pointer;
+   border-radius: 15px;
+   background-color: #342a2ae3;
+ }
