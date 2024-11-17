@@ -6,12 +6,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline';"
-    />
-    <link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/bootstrap-grid.css" />
 
     <title>ToDo List</title>
   </head>
@@ -20,10 +16,12 @@
       <header>
         <div class="container">
           <div class="header__row row">
-            <div class="header__logo col-md-auto">
+            <div class="header__logo col-md-auto col-sm-auto col-auto">
               <img src="assets/img/logo.jpg" alt="Logo for app" />
             </div>
-            <div class="header__title col-md-auto">ToDo List App</div>
+            <div class="header__title col-md-auto col-sm-auto col-auto">
+              ToDo List App
+            </div>
           </div>
         </div>
       </header>
@@ -33,20 +31,26 @@
           <div class="field">
             <div class="container">
               <div class="field__row row">
-                <div class="field__header col-md-auto my-4">
+                <div
+                  class="field__header col-md-auto col-sm-auto col-auto my-4"
+                >
                   Добавить новую задачу
                 </div>
                 <div class="field__form">
                   <form id="form" class="row">
                     <input
-                      class="field__input col-md-8 offset-1"
+                      class="field__input col-8 offset-1"
+                      required
                       type="text"
                       name="add_task"
                       id="add"
                       placeholder="Запиши, чтобы не забыть"
                     />
-                    <button type="submit" class="field__button col-md-2 mx-1">
-                      Добавить
+                    <button
+                      type="submit"
+                      class="field__button col-1 col-sm-2 mx-1"
+                    >
+                      <span class="field__text">Добавить</span>
                     </button>
                   </form>
                 </div>

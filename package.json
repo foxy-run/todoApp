@@ -1,7 +1,7 @@
 {
   "name": "todoapp",
   "version": "1.0.0",
-  "description": "Разработайте веб-приложение \"To-Do List\" с возможностью добавления, удаления и отметки задач как выполненных. Приложение должно быть красиво и адаптивно сверстано, используя Bootstrap (приоритет) или Tailwind CSS.",
+  "description": "",
   "main": "src/js/main.js",
   "dependencies": {
     "bootstrap": "^5.3.3"
