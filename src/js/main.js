@@ -77,48 +77,54 @@ function addTask(event) {
 
 function deleteTask(event) {
   // Проверка, что был клик по кнопке delete
-  if (event.target.dataset.action === 'delete') {
-
-    const parentNode = event.target.closest('.tasks__item'); // поиск ближайшего родителя
-
-    // Нахождение id таски
-    const id = parentNode.id;
-
-    // Нахождение индекса таски в массиве
-    const index = tasks.findIndex(function (task) {
-
-      if (task.id == id) {
-        return true
-      }
-    });
-
-    // Удаление задачи из массива
-    tasks.splice(index, 1);
-    parentNode.remove(); // удаление родителя
-    checkEmptyList();
-    saveToLocalStorage();
+  if (event.target.dataset.action !== 'delete') {
+    return
   }
+
+  const parentNode = event.target.closest('.tasks__item'); // поиск ближайшего родителя
+
+  // Нахождение id таски
+  const id = parentNode.id;
+
+  // Нахождение индекса таски в массиве
+  const index = tasks.findIndex(function (task) {
+
+    if (task.id == id) {
+      return true
+    }
+  });
+
+  // Удаление задачи из массива
+  tasks.splice(index, 1);
+  parentNode.remove(); // удаление родителя
+  checkEmptyList();
+  saveToLocalStorage();
 };
 
 function doneTask(event) {
   // Проверка, что был клик по кнопке done
-  if (event.target.dataset.action === 'done') {
-    const parentNode = event.target.closest('.tasks__item');    // поиск родительского тега
+  if (event.target.dataset.action !== 'done') {
 
-    // поиск id таски
-    const id = parentNode.id;
-    const task = tasks.find(function (task) {
-      if (task.id == id) {
-        return true
-      }
-    });
+    return
+  }
 
-    task.done = !task.done;
-    const taskTitle = parentNode.querySelector('.tasks__title'); // поиск текста задачи
-    taskTitle.classList.toggle('done'); // добавление класса для визуализации выполнения задачи
-  };
+  const parentNode = event.target.closest('.tasks__item');    // поиск родительского тега
+
+  // поиск id таски
+  const id = parentNode.id;
+  const task = tasks.find(function (task) {
+    if (task.id == id) {
+      return true
+    }
+  });
+
+  task.done = !task.done;
+  const taskTitle = parentNode.querySelector('.tasks__title'); // поиск текста задачи
+  taskTitle.classList.toggle('done'); // добавление класса для визуализации выполнения задачи
   saveToLocalStorage();
-}
+};
+
+
 
 function checkEmptyList() {
   if (tasks.length === 0) {
