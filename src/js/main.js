@@ -104,7 +104,6 @@ function deleteTask(event) {
 function doneTask(event) {
   // Проверка, что был клик по кнопке done
   if (event.target.dataset.action !== 'done') {
-
     return
   }
 
