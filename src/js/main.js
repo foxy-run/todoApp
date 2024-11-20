@@ -19,16 +19,16 @@ tasks.forEach(task => {
   const classCss = task.done ? 'tasks__title done' : 'tasks__title';
   const taskHTML = `
                 <li class="tasks__item row my-1" id="${task.id}">
-                  <button type="button" class="tasks__done col-1 offset-1" data-action="done"><img src="assets/img/64.png" width="25px" height="25px" alt="Task done"></button>
+                  <button type="button" class="tasks__done col-1 offset-1" data-action="done"><img src="assets/img/check.png" width="25px" height="25px" alt="Task done"></button>
                   <span class="${classCss} col-8">${task.text}</span>
-                  <button type="button" class="tasks__delete col-1" data-action="delete"><img src="assets/img/65.png" width="25px" height="25px" alt="Task delete"></button>
+                  <button type="button" class="tasks__delete col-1" data-action="delete"><img src="assets/img/trash.png" width="25px" height="25px" alt="Task delete"></button>
                 </li>
     `;
   tasksList.insertAdjacentHTML('beforeend', taskHTML);
 });
 
 function saveToLocalStorage() {
-  localStorage.setItem('tasks', JSON.stringify(tasks))   // перевод массива в json
+  localStorage.setItem('tasks', JSON.stringify(tasks))   // перевод массива в строку
 }
 
 // Прослушивание событий 
@@ -59,9 +59,9 @@ function addTask(event) {
   // Отрисовка шаблона задачи
   const taskHTML = `
                 <li class="tasks__item row my-1" id="${newTask.id}">
-                  <button type="button" class="tasks__done col-1 offset-1" data-action="done"><img src="assets/img/64.png" width="25px" height="25px" alt="Task done"></button>
+                  <button type="button" class="tasks__done col-1 offset-1" data-action="done"><img src="assets/img/check.png" width="25px" height="25px" alt="Task done"></button>
                   <span class="${classCss} col-8">${newTask.text}</span>
-                  <button type="button" class="tasks__delete col-1" data-action="delete"><img src="assets/img/65.png" width="25px" height="25px" alt="Task delete"></button>
+                  <button type="button" class="tasks__delete col-1" data-action="delete"><img src="assets/img/trash.png" width="25px" height="25px" alt="Task delete"></button>
                 </li>
     `;
 
