@@ -134,7 +134,7 @@ body {
 }
 
 .tasks__item li {
-  margin-top: 5 px;
+  margin-top: 5px;
   display: inline-block;
 }
 
@@ -164,7 +164,7 @@ body {
   pointer-events: none;
 }
 
-.done {
+.done, .done::placeholder {
   text-decoration: line-through;
   color: rgba(255, 228, 196, 0.296);
 }
@@ -200,8 +200,18 @@ body {
   box-shadow: 0.5px rgb(234, 216, 216);
 }
 
-.tasks__delete {
+.tasks__delete, .tasks__edit {
   cursor: pointer;
   border-radius: 15px;
   background-color: #342a2ae3;
 }
+
+#task-input{
+  cursor: pointer;
+  background-color: rgb(54, 51, 51);
+  font-size: 25px;
+  border-radius: 15px;
+
+}
+
+

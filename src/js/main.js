@@ -2,7 +2,8 @@
 const form = document.querySelector('#form');
 const input = document.querySelector('#add');
 const tasksList = document.querySelector('.tasks__list');
-const emptyList = document.querySelector('#emptyList');
+// const emptyList = document.querySelector('#emptyList');
+//const editInput = document.querySelector('#task-input');
 
 // Массив для хранения в localStorage
 let tasks = [];
@@ -20,7 +21,8 @@ tasks.forEach(task => {
     const taskHTML = `
                 <li class="tasks__item row my-1" id="${task.id}">
                   <button type="button" class="tasks__done col-1 offset-1" data-action="done"><img src="assets/img/check.png" width="25px" height="25px" alt="Task done"></button>
-                  <span class="${classCss} col-8">${task.text}</span>
+                  <input class="${classCss} col-8" disabled type="text" placeholder="${task.text}" id="task-input"/>
+                  <button type="button" class="tasks__edit col-1 " data-action="edit"><img src="assets/img/edit.png" width="25px" height="25px" alt="Task edit"></button>
                   <button type="button" class="tasks__delete col-1" data-action="delete"><img src="assets/img/trash.png" width="25px" height="25px" alt="Task delete"></button>
                 </li>
     `;
@@ -35,6 +37,7 @@ function saveToLocalStorage() {
 form.addEventListener('submit', addTask);
 tasksList.addEventListener('click', deleteTask);
 tasksList.addEventListener('click', doneTask);
+//tasksList.addEventListener('click', editTask);
 
 function addTask(event) {
     // Отмена отправки формы
@@ -48,6 +51,7 @@ function addTask(event) {
         id: Date.now(),
         text: textValue,
         done: false,
+        isEdit: false,
     };
 
     // Добавление объекта в массив задач
@@ -59,7 +63,8 @@ function addTask(event) {
     const taskHTML = `
                 <li class="tasks__item row my-1" id="${newTask.id}">
                   <button type="button" class="tasks__done col-1 offset-1" data-action="done"><img src="assets/img/check.png" width="25px" height="25px" alt="Task done"></button>
-                  <span class="${classCss} col-8">${newTask.text}</span>
+                  <input class="${classCss} col-8" disabled type="text" value="${newTask.text}" id="task-input"/>
+                  <button type="button" class="tasks__edit col-1 " data-action="edit"><img src="assets/img/edit.png" width="25px" height="25px" alt="Task edit"></button>
                   <button type="button" class="tasks__delete col-1" data-action="delete"><img src="assets/img/trash.png" width="25px" height="25px" alt="Task delete"></button>
                 </li>
     `;
@@ -93,11 +98,19 @@ function deleteTask(event) {
         }
     });
 
-    // Удаление задачи из массива
-    tasks.splice(index, 1);
-    parentNode.remove(); // удаление родителя
-    checkEmptyList();
-    saveToLocalStorage();
+    // Вывод подтверждения об удалении
+    const confirmDelete = confirm('Удалить задачу?')
+    if (confirmDelete ==false){
+        return;
+    } else{
+        // Удаление задачи из массива
+        tasks.splice(index, 1);
+        parentNode.remove(); // удаление родителя
+        checkEmptyList();
+        saveToLocalStorage();
+    }
+
+
 }
 
 function doneTask(event) {
@@ -121,6 +134,41 @@ function doneTask(event) {
     taskTitle.classList.toggle('done'); // добавление класса для визуализации выполнения задачи
     saveToLocalStorage();
 }
+
+// function editTask(event) {
+//     // Проверка, что был клик по кнопке done
+//     if (event.target.dataset.action !== 'edit') {
+//         return
+//     }
+//
+//     const parentNode = event.target.closest('.tasks__item');    // поиск родительского тега
+//
+//     // поиск id таски
+//     const id = parentNode.id;
+//     const task = tasks.find(function (task) {
+//         if (task.id == id) {
+//             return true
+//         }
+//     });
+//
+//     task.isEdit = !task.isEdit;
+//     const taskTitle = parentNode.querySelector('.tasks__title'); // поиск текста задачи
+//     taskTitle.classList.toggle('edit'); // добавление класса для визуализации выполнения задачи
+//
+//     if (task.isEdit == false) {
+//         return;
+//     }
+//
+//     // const editText = editInput.textContent;
+//
+//     let editRemove = document.getElementById('task-input');
+//     editRemove.removeAttribute('disabled');
+//     const valueFromInput = valueFromInput.value;
+//
+//     console.log(valueFromInput);
+//         //saveToLocalStorage();
+// }
+
 
 function checkEmptyList() {
     if (tasks.length === 0) {
