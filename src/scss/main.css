@@ -1,81 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
-
+@import "https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap";
 @media (max-width: 576px) {
-
   .field-header {
     font-size: 20px;
   }
-
   .field-button {
     display: flex;
     justify-content: center;
-
   }
-
   .field-text {
     font-size: 7px !important;
   }
-
   .header-title {
     font-size: 35px !important;
   }
-
   .header-logo img {
     height: 45px !important;
     width: 45px !important;
   }
-
   .tasks-done {
     display: flex;
     justify-content: center;
   }
-
   .tasks-delete {
     display: flex;
     justify-content: center;
   }
-
   .tasks-title {
     font-size: 15px;
     padding-top: 5px;
   }
 }
-
-
 @media (max-width: 768px) {
-
   .field-button {
     display: flex;
     justify-content: center;
   }
-
   .field-text {
     font-size: 10px;
     align-items: center;
     padding-top: 10px;
   }
-
   .header-title {
     font-size: 45px;
   }
-
   .header-logo img {
     height: 75px;
     width: 75px;
   }
-
   .tasks-done {
     display: flex;
     justify-content: center;
   }
-
   .tasks-delete {
     display: flex;
     justify-content: center;
   }
+  .tasks-edit {
+    display: flex;
+    justify-content: center;
+  }
 }
-
-
+@media (max-width: 415px) {
+  .field-button {
+    max-width: 75px !important;
+  }
+  .field-button span {
+    display: none;
+  }
+}
 body {
   font-family: Nunito Sans;
   height: 100%;
@@ -116,7 +108,6 @@ body {
   align-items: center;
 }
 
-
 .tasks {
   display: flex;
   justify-content: center;
@@ -130,9 +121,12 @@ body {
   justify-content: space-between;
   list-style: none;
   padding: 15px;
-
 }
 
+.tasks-item {
+  color: beige;
+  font-size: 25px;
+}
 .tasks-item li {
   margin-top: 5px;
   display: inline-block;
@@ -140,11 +134,6 @@ body {
 
 .none {
   display: none;
-}
-
-.tasks-item {
-  color: beige;
-  font-size: 25px;
 }
 
 .tasks-icon_empty img {
@@ -159,17 +148,46 @@ body {
   text-align: center;
 }
 
-.tasks-done img,
-.tasks-delete img,
-.tasks-edit img{
+.tasks-done {
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: rgba(52, 42, 42, 0.8901960784);
+}
+.tasks-done img {
   pointer-events: none;
 }
-
-.done, .done::placeholder {
-  text-decoration: line-through;
-  color: rgba(255, 228, 196, 0.296);
+.tasks-done:hover {
+  background: linear-gradient(21deg, #7a317c, #53388c);
 }
 
+.tasks-delete {
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: rgba(52, 42, 42, 0.8901960784);
+}
+.tasks-delete img {
+  pointer-events: none;
+}
+.tasks-delete:hover {
+  background: linear-gradient(21deg, #7a317c, #53388c);
+}
+
+.tasks-edit {
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: rgba(52, 42, 42, 0.8901960784);
+}
+.tasks-edit img {
+  pointer-events: none;
+}
+.tasks-edit:hover {
+  background: linear-gradient(21deg, #7a317c, #53388c);
+}
+
+.done {
+  color: rgba(206, 158, 100, 0.29);
+  text-decoration: line-through;
+}
 
 .field-input {
   background-color: rgba(119, 110, 126, 0.822);
@@ -179,7 +197,6 @@ body {
   border: 0.5px solid rgba(119, 110, 126, 0.822);
   border-radius: 15px;
 }
-
 
 ::placeholder {
   color: beige;
@@ -193,26 +210,19 @@ body {
   font-size: 22px;
   font-family: inherit;
 }
-
-.tasks-done {
-  cursor: pointer;
-  border-radius: 15px;
-  background-color: #342a2ae3;
-  box-shadow: 0.5px rgb(234, 216, 216);
+.field-button:hover {
+  background: linear-gradient(21deg, #7a317c, #53388c);
 }
 
-.tasks-delete, .tasks-edit {
-  cursor: pointer;
-  border-radius: 15px;
-  background-color: #342a2ae3;
-}
-
-#task-input{
+#task-input {
   cursor: pointer;
   background-color: rgb(54, 51, 51);
   font-size: 25px;
   border-radius: 15px;
-
 }
 
+.tasks-title {
+  color: beige;
+}
 
+/*# sourceMappingURL=main.css.map */

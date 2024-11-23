@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="scss/main.css" />
     <link rel="stylesheet" href="css/vendor/bootstrap-grid.css" />
 
     <title>ToDo List</title>
@@ -15,11 +15,11 @@
     <div class="wrapper">
       <header>
         <div class="container">
-          <div class="header__row row">
-            <div class="header__logo col-md-auto col-sm-auto col-auto">
+          <div class="header-row row">
+            <div class="header-logo col-md-auto col-sm-auto col-auto">
               <img src="assets/img/logo.jpg" alt="Logo for app" />
             </div>
-            <div class="header__title col-md-auto col-sm-auto col-auto">
+            <div class="header-title col-md-auto col-sm-auto col-auto">
               ToDo List App
             </div>
           </div>
@@ -30,16 +30,16 @@
         <div class="content">
           <div class="field">
             <div class="container">
-              <div class="field__row row">
+              <div class="field-row row">
                 <div
-                  class="field__header col-md-auto col-sm-auto col-auto my-4"
+                  class="field-header col-md-auto col-sm-auto col-auto my-4"
                 >
                   Добавить новую задачу
                 </div>
-                <div class="field__form">
+                <div class="field-form">
                   <form id="form" class="row">
                     <input
-                      class="field__input col-8 offset-1"
+                      class="field-input col-8 offset-1"
                       required
                       type="text"
                       name="add_task"
@@ -48,9 +48,9 @@
                     />
                     <button
                       type="submit"
-                      class="field__button col-1 col-sm-2 mx-1"
+                      class="field-button col-1 col-sm-2 mx-1"
                     >
-                      <span class="field__text">Добавить</span>
+                      <span class="field-text">Добавить</span>
                     </button>
                   </form>
                 </div>
@@ -59,7 +59,7 @@
           </div>
           <div class="tasks">
             <div class="container">
-              <ul class="tasks__list col-md-auto" id="list"></ul>
+              <ul class="tasks-list col-md-auto" id="list"></ul>
             </div>
           </div>
         </div>
