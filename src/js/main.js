@@ -18,10 +18,10 @@ tasks.forEach(task => {
     const classCss = task.done ? 'tasks-title done' : 'tasks-title';
     const taskHTML = `
                 <li class="tasks-item row my-1" id="${task.id}">
-                  <button type="button" class="tasks-done col-1 offset-1" data-action="done"><img src="assets/img/check.png" width="25px" height="25px" alt="Task done"></button>
+                  <button type="button" class="tasks-done col-1 offset-1" data-action="done"><img src="images/check.png" width="25px" height="25px" alt="Task done"></button>
                   <input class="${classCss} col-8" disabled type="text" value="${task.text}" id="task-input"/>
-                  <button type="submit" class="tasks-edit col-1 " data-action="edit"><img src="assets/img/edit.png" width="25px" height="25px" alt="Task edit"></button>
-                  <button type="button" class="tasks-delete col-1" data-action="delete"><img src="assets/img/trash.png" width="25px" height="25px" alt="Task delete"></button>
+                  <button type="submit" class="tasks-edit col-1 " data-action="edit"><img src="images/edit.png" width="25px" height="25px" alt="Task edit"></button>
+                  <button type="button" class="tasks-delete col-1" data-action="delete"><img src="images/trash.png" width="25px" height="25px" alt="Task delete"></button>
                 </li>
     `;
     tasksList.insertAdjacentHTML('beforeend', taskHTML);
@@ -60,10 +60,10 @@ function addTask(event) {
     // Отрисовка шаблона задачи
     const taskHTML = `
                 <li class="tasks-item row my-1" id="${newTask.id}">
-                  <button type="button" class="tasks-done col-1 offset-1" data-action="done"><img src="assets/img/check.png" width="25px" height="25px" alt="Task done"></button>
+                  <button type="button" class="tasks-done col-1 offset-1" data-action="done"><img src="images/check.png" width="25px" height="25px" alt="Task done"></button>
                   <input class="${classCss} col-8" disabled type="text" value="${newTask.text}" id="task-input"/>
-                  <button type="button" class="tasks-edit col-1 " data-action="edit"><img src="assets/img/edit.png" width="25px" height="25px" alt="Task edit"></button>
-                  <button type="button" class="tasks-delete col-1" data-action="delete"><img src="assets/img/trash.png" width="25px" height="25px" alt="Task delete"></button>
+                  <button type="button" class="tasks-edit col-1 " data-action="edit"><img src="images/edit.png" width="25px" height="25px" alt="Task edit"></button>
+                  <button type="button" class="tasks-delete col-1" data-action="delete"><img src="images/trash.png" width="25px" height="25px" alt="Task delete"></button>
                 </li>
     `;
 
@@ -131,11 +131,11 @@ function doneTask(event) {
 
     if (task.done) {
         taskTitle.classList.add('done'); // класс для выполненной таски
-        doneButton.src = 'assets/img/uncheck.png';
+        doneButton.src = 'images/uncheck.png';
         doneButton.alt = 'Uncheck task';
     } else {
         taskTitle.classList.remove('done');
-        doneButton.src = 'assets/img/check.png';
+        doneButton.src = 'images/check.png';
         doneButton.alt = 'Task done';
     }
 
@@ -162,14 +162,14 @@ function editTask(event) {
         task.isEdit = true;
         taskInput.removeAttribute('disabled');
         taskInput.focus();
-        event.target.querySelector('img').src = 'assets/img/save.png';
+        event.target.querySelector('img').src = 'images/save.png';
     } else {
         const newTaskText = taskInput.value.trim(); // Получние нового текста
         if (newTaskText !== '') {
             task.text = newTaskText; // Обновление текста таски в массиве
             taskInput.setAttribute('disabled', 'true');
             task.isEdit = false;
-            event.target.querySelector('img').src = 'assets/img/edit.png';
+            event.target.querySelector('img').src = 'images/edit.png';
             saveToLocalStorage();
         } else {
             alert('Текст задачи не может быть пустым!');
