@@ -12,7 +12,7 @@ module.exports = {
     },
     devServer: {
         static: path.join(__dirname, 'dist'), // Папка для сервера разработки
-        port: 8080, // Порт сервера
+        port: 1313, // Порт сервера
         open: false, // Автооткрытие браузера
         hot: true, // Горячая перезагрузка
     },
@@ -58,7 +58,7 @@ module.exports = {
 
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'src/assets/img', to: 'images' }, // Копирует все изображения в папку dist/images
+                {from: 'src/assets/img', to: 'images'}, // Копирует все изображения в папку dist/images
             ],
         }),
         new HtmlWebpackPlugin({

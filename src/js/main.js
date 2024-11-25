@@ -170,12 +170,13 @@ function editTask(event) {
             taskInput.setAttribute('disabled', 'true');
             task.isEdit = false;
             event.target.querySelector('img').src = 'images/edit.png';
-            saveToLocalStorage();
+
         } else {
             alert('Текст задачи не может быть пустым!');
             taskInput.focus();
         }
     }
+    saveToLocalStorage();
 }
 
 
