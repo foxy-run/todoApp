@@ -12,7 +12,7 @@ module.exports = {
     },
     devServer: {
         static: path.join(__dirname, 'dist'), // Папка для сервера разработки
-        port: 1313, // Порт сервера
+        port: 1366, // Порт сервера
         open: false, // Автооткрытие браузера
         hot: true, // Горячая перезагрузка
     },

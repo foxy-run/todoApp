@@ -16,7 +16,7 @@
 
 ### `npm run build`
 
-Проект доступен по ссылке [http://localhost:1313](http://localhost:1313).
+Проект доступен по ссылке [http://localhost:1366](http://localhost:1366).
 
 #  Краткое описание использованных технологий и подходов
 1. Для верстки использован HTML + Bootstrap (grid).
