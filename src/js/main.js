@@ -17,11 +17,11 @@ checkEmptyList();
 tasks.forEach(task => {
     const classCss = task.done ? 'tasks-title done' : 'tasks-title';
     const taskHTML = `
-                <li class="tasks-item row my-1" id="${task.id}">
-                  <button type="button" class="tasks-done col-1 offset-1" data-action="done"><img src="images/check.png" width="25px" height="25px" alt="Task done"></button>
-                  <input class="${classCss} col-8" disabled type="text" value="${task.text}" id="task-input"/>
-                  <button type="submit" class="tasks-edit col-1 " data-action="edit"><img src="images/edit.png" width="25px" height="25px" alt="Task edit"></button>
-                  <button type="button" class="tasks-delete col-1" data-action="delete"><img src="images/trash.png" width="25px" height="25px" alt="Task delete"></button>
+                <li class="tasks-item d-flex flex-row mt-2" id="${task.id}">
+                  <button type="button" class="tasks-done" data-action="done"><img src="images/check.png" width="25px" height="25px" alt="Task done"></button>
+                  <input class="${classCss} ms-2" disabled type="text" value="${task.text}" id="task-input"/>
+                  <button type="submit" class="tasks-edit ms-2" data-action="edit"><img src="images/edit.png" width="25px" height="25px" alt="Task edit"></button>
+                  <button type="button" class="tasks-delete ms-2" data-action="delete"><img src="images/trash.png" width="25px" height="25px" alt="Task delete"></button>
                 </li>
     `;
     tasksList.insertAdjacentHTML('beforeend', taskHTML);
@@ -59,11 +59,11 @@ function addTask(event) {
     const classCss = 'tasks-title';
     // Отрисовка шаблона задачи
     const taskHTML = `
-                <li class="tasks-item row my-1" id="${newTask.id}">
-                  <button type="button" class="tasks-done col-1 offset-1" data-action="done"><img src="images/check.png" width="25px" height="25px" alt="Task done"></button>
-                  <input class="${classCss} col-8" disabled type="text" value="${newTask.text}" id="task-input"/>
-                  <button type="button" class="tasks-edit col-1 " data-action="edit"><img src="images/edit.png" width="25px" height="25px" alt="Task edit"></button>
-                  <button type="button" class="tasks-delete col-1" data-action="delete"><img src="images/trash.png" width="25px" height="25px" alt="Task delete"></button>
+                <li class="tasks-item d-flex flex-row mt-2" id="${newTask.id}">
+                  <button type="button" class="tasks-done" data-action="done"><img src="images/check.png" width="25px" height="25px" alt="Task done"></button>
+                  <input class="${classCss} ms-2" disabled type="text" value="${newTask.text}" id="task-input"/>
+                  <button type="button" class="tasks-edit ms-2" data-action="edit"><img src="images/edit.png" width="25px" height="25px" alt="Task edit"></button>
+                  <button type="button" class="tasks-delete ms-2" data-action="delete"><img src="images/trash.png" width="25px" height="25px" alt="Task delete"></button>
                 </li>
     `;
 
@@ -182,7 +182,7 @@ function editTask(event) {
 
 function checkEmptyList() {
     if (tasks.length === 0) {
-        const emptyListTasks = `<li class="tasks-item empty col-md-auto" id="emptyList">
+        const emptyListTasks = `<li class="tasks-item empty" id="emptyList">
                   <div class="tasks-title_empty ">Список дел пока пуст...</div>
                 </li>`
         tasksList.insertAdjacentHTML('afterbegin', emptyListTasks);
