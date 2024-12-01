@@ -18,7 +18,7 @@ tasks.forEach(task => {
     const classCss = task.done ? 'tasks-title done' : 'tasks-title';
     const taskHTML = `
                 <li class="tasks-item d-flex flex-row mt-2" id="${task.id}">
-                  <button type="button" class="tasks-done" data-action="done"><img src="images/check.png" width="25px" height="25px" alt="Task done"></button>
+                  <button type="button" class="tasks-done" data-action="done"><img src="${task.buttonImage}" width="25px" height="25px" alt="${task.done ? 'Uncheck task' : 'Task done'}"></button>
                   <input class="${classCss} ms-2" disabled type="text" value="${task.text}" id="task-input"/>
                   <button type="submit" class="tasks-edit ms-2" data-action="edit"><img src="images/edit.png" width="25px" height="25px" alt="Task edit"></button>
                   <button type="button" class="tasks-delete ms-2" data-action="delete"><img src="images/trash.png" width="25px" height="25px" alt="Task delete"></button>
@@ -50,6 +50,7 @@ function addTask(event) {
         text: textValue,
         done: false,
         isEdit: false,
+        buttonImage: 'images/check.png',
     };
 
     // Добавление объекта в массив задач
@@ -60,7 +61,7 @@ function addTask(event) {
     // Отрисовка шаблона задачи
     const taskHTML = `
                 <li class="tasks-item d-flex flex-row mt-2" id="${newTask.id}">
-                  <button type="button" class="tasks-done" data-action="done"><img src="images/check.png" width="25px" height="25px" alt="Task done"></button>
+                  <button type="button" class="tasks-done" data-action="done"><img src="${newTask.buttonImage}" width="25px" height="25px" alt="${newTask.done ? 'Uncheck task' : 'Task done'}"></button>
                   <input class="${classCss} ms-2" disabled type="text" value="${newTask.text}" id="task-input"/>
                   <button type="button" class="tasks-edit ms-2" data-action="edit"><img src="images/edit.png" width="25px" height="25px" alt="Task edit"></button>
                   <button type="button" class="tasks-delete ms-2" data-action="delete"><img src="images/trash.png" width="25px" height="25px" alt="Task delete"></button>
@@ -131,11 +132,13 @@ function doneTask(event) {
 
     if (task.done) {
         taskTitle.classList.add('done'); // класс для выполненной таски
-        doneButton.src = 'images/uncheck.png';
+        task.buttonImage = 'images/uncheck.png';
+        doneButton.src = task.buttonImage;
         doneButton.alt = 'Uncheck task';
     } else {
         taskTitle.classList.remove('done');
-        doneButton.src = 'images/check.png';
+        task.buttonImage = 'images/check.png';
+        doneButton.src = 'images/uncheck.png';
         doneButton.alt = 'Task done';
     }
 
